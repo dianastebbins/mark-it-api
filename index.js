@@ -1,13 +1,13 @@
-var express = require('express');
+const express = require('express');
 const cors = require("cors");
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
-// var allRoutes = require('./controllers');
+const app = express();
+const PORT = process.env.PORT || 8080;
+// const allRoutes = require('./controllers');
 
 // Requiring our models for syncing
-var db = require('./models');
+const db = require('./models');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

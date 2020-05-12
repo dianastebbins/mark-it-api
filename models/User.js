@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
         vendor_name: {
             type: DataTypes.STRING,
             unique: true,
-            // allowNull: false,
+            allowNull: false,
             validate: {
                 len: [5]
             }
@@ -60,29 +60,29 @@ module.exports = function (sequelize, DataTypes) {
         //     defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
         // }
     });
-    // User.associate = function (models) {
-    //     User.hasMany(models.product, {
-    //         onDelete: "CASCADE",
-    //         foreignKey: {
-    //             allowNull: true
-    //         }
-    //     });
-        // User.hasMany(models.schedule, {
-        //     onDelete: "CASCADE",
-        //     foreignKey: {
-        //         allowNull: true
-        //     }
-        // });
-        // User.hasMany(models.user,{
-        //     foreignKey: {
-        //         allowNull: true
-        //     }
-        // })
-        // User.belongsToMany(models.market, {through: 'userMarkets'})
-    // };
+    User.associate = function (models) {
+        User.hasMany(models.product, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: true
+            }
+        });
+        User.hasMany(models.schedule, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: true
+            }
+        });
+        User.hasMany(models.user,{
+            foreignKey: {
+                allowNull: true
+            }
+        })
+        User.belongsToMany(models.market, {through: 'userMarkets'})
+    };
 
 
 
 
-    return Player;
+    return User;
 };
