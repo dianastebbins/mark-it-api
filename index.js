@@ -4,7 +4,8 @@ const cors = require("cors");
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 8080;
-// const allRoutes = require('./controllers');
+// const allRoutes = require('./controllers/userController');
+// require('./controllers/userController');
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -28,10 +29,12 @@ app.use(cors({
 
 // app.use('/',allRoutes); // from joe's example, commented out even there
 
-// const userRoutes = require("./controllers/userController");
+const userRoutes = require("./controllers/userController");
+const productRoutes = require("./controllers/productController");
 // const htmlRoutes = require("./controllers/htmlController");
 
-// app.use(userRoutes);
+app.use(userRoutes);
+app.use(productRoutes);
 // app.use(htmlRoutes);
 
 // // example to automatically "prepend" the specific url path api/volunteer/info

@@ -6,15 +6,15 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Market.associate = function (models) {
-    //     // Schedule.belongsToMany(models.user, {through: 'marketUsers'});
-    //     Market.hasMany(models.schedule, {
-    //         onDelete: "CASCADE",
-    //         foreignKey: {
-    //             allowNull: true
-    //         }
-    //     });
-    // }
+    Market.associate = function (models) {
+        // Schedule.belongsToMany(models.user, {through: 'marketUsers'});
+        Market.hasMany(models.schedule, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    }
 
     return Market;
 }
