@@ -38,8 +38,8 @@ app.use(cors({
 // const volunteerInfoApiRoutes = require("./controllers/volunteerInfoController");
 // app.use("/api/volunteer/info", volunteerInfoApiRoutes);
 
-const playerRoutes = require("./controllers/playerController");
-app.use(playerRoutes);
+// const playerRoutes = require("./controllers/playerController");
+// app.use(playerRoutes);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
