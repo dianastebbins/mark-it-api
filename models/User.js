@@ -73,7 +73,9 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: true
             }
         });
-        User.hasMany(models.user,{
+        User.belongsToMany(models.user,{
+            through: "userFavorites",
+            as: "favorites",
             foreignKey: {
                 allowNull: true
             }
