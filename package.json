@@ -1,5 +1,5 @@
 {
-  "name": "markit-api",
+  "name": "mark-it-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dianastebbins/mark-it-api"
+    "url": "git+https://github.com/dianastebbins/mark-it-api.git"
   },
   "author": "",
   "license": "ISC",
