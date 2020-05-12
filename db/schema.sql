@@ -1,9 +1,9 @@
 ### Schema
 
-DELETE DATABASE IF EXISTS mark_it_db;
+DELETE DATABASE IF EXISTS markit_db;
 
-CREATE DATABASE mark_it_db;
-USE mark_it_db;
+CREATE DATABASE markit_db;
+USE markit_db;
 
 -- DELETE DATABASE IF EXISTS name_db;
 
