@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 
 // GET ALL USERS (JSON)
@@ -74,6 +75,31 @@ router.get("/api/users/:id/products", function (req, res) {
 });
 
 
+router.post("/login", (req, res) => {
+    db.user
+        .findOne({
+            where: {
+                username: req.body.username
+            }
+        })
+        .then((dbUser) => { 
+            // check username/password combination
+            if(!dbUser){
+                //         // req.session.user = false;
+                res.json("Username not found")
+            } else if(bcrypt.compareSync(req.body.password, dbUser.password)){
+                //         // req.session.user = {
+                //         //     id: dbUser.id,
+                //         //     username: dbUser.username
+                //         // }
+                //             // res.json(req.session)
+                res.json("Logged in");
+            }else {
+                //         // req.session.user = false
+                res.json("Username and password do not exist")
+            }
+        })
+});
 
 
 
