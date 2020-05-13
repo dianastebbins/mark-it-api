@@ -14,6 +14,9 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: true
             }
         });
+        Market.belongsToMany(models.user, { 
+            through: 'userMarkets' 
+        })
     }
 
     return Market;

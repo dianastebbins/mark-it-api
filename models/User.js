@@ -73,22 +73,13 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: true
             }
         });
-        // User.belongsToMany(models.user,{
-        //     through: "userFavorites",
-        //     as: "favorites",
-        //     foreignKey: "favoriteId"
-        // });
-
+    
         User.belongsToMany(models.user, { 
             as: 'favorite',
             through: "userfavorites" 
         });
-        // User.hasMany(models.user, {
-        //     // as: 'favorite',
-        //     through: "userfavorites",
-        //     foreignKey: 'favoriteId', 
-        // })
 
+     
         User.belongsToMany(models.market, { through: 'userMarkets' })
     };
 
