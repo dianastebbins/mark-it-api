@@ -27,6 +27,24 @@ router.post("/api/users", function (req, res) {
     }).then(dbCost => res.send(dbCost));
 });
 
+//TODO: ADD FAVORITE VENDOR 
+// router.put("/api/users/:id/vendors", function (req, res) {
+//     // GET VENDOR ID FROM PAGE?
+//     const vendorId = req.body.vendor_id;
+//     db.user.update(
+//         {
+
+//         },
+//         where: {
+//             id: req.params.id
+//         }
+//     ).then((dbUserFavs) => {
+//         res.json(
+//             dbUserFavs.addUser(vendorId)
+//         )
+//     })
+// });
+
 // GET USER BY ID#
 router.get("/api/users/:id", function (req, res) {
     db.user
@@ -74,32 +92,31 @@ router.get("/api/users/:id/markets/schedules", function (req, res) {
         .then((dbEvent) => res.json(dbEvent));
 });
 
-// GET USER FAVORITE VENDERS BY USER ID
-router.get("/api/users/:id/vendors", function(req,res) {
+// GET USER FAVORITE VENDORS BY USER ID
+router.get("/api/users/:id/vendors", function (req, res) {
     db.user.findAll({
         where: {
             id: req.params.id
         },
-        include: [{model: db.user, as: 'favorite'}],
+        include: [{ model: db.user, as: 'favorites' }],
     }).then(dbUserFavs => res.json(dbUserFavs))
-
 })
 
 // GET ALL INFO
-router.get("/api/user/allinfo", function (req,res) {
-    db.user.findAll({include: [db.product, db.market, db.schedule]})
-    .then(dbAllInfo => res.json(dbAllInfo));
+router.get("/api/user/allinfo", function (req, res) {
+    db.user.findAll({ include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorite' }] })
+        .then(dbAllInfo => res.json(dbAllInfo));
 })
 
 // GET ALL INFO BY USER ID
-router.get("/api/users/:id/allinfo", function (req,res) {
+router.get("/api/users/:id/allinfo", function (req, res) {
     db.user.findAll({
         include: [db.product, db.market, db.schedule],
         where: {
             id: req.params.id
         }
     })
-    .then(dbAllInfo => res.json(dbAllInfo));
+        .then(dbAllInfo => res.json(dbAllInfo));
 })
 
 

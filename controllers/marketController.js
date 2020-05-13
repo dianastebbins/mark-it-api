@@ -18,7 +18,7 @@ router.post("/api/markets", function (req, res) {
         // CREATE ENTRY IN JUNCTION TABLE
         dbMarket.addUser(userID)
     })
-})
+});
 
 
 
