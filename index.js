@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Sets up the Express App
 // =============================================================
@@ -13,6 +15,21 @@ const db = require('./models');
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// TODO: replace with       secret: process.env.SESSION_SECRET,     
+app.use(session(
+    { 
+      secret: "banana pudding", 
+      store: new SequelizeStore({
+        db:db.sequelize
+      }),
+      resave: false, 
+      saveUninitialized: false,
+      cookie : {
+        maxAge:2*60*60*1000
+      }
+    }));
+
 app.use(cors({
     origin:["http://localhost:3000"]
 }));
