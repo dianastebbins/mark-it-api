@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 
 // GET ALL USERS (JSON)
@@ -119,6 +120,46 @@ router.get("/api/users/:id/allinfo", function (req, res) {
         .then(dbAllInfo => res.json(dbAllInfo));
 })
 
+
+router.get("/readsessions", (req, res) => {
+    res.json(req.session)
+});
+
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.json("User logged out")
+});
+
+
+router.post("/login", (req, res) => {
+    db.user
+        .findOne({
+            where: {
+                username: req.body.username
+            }
+        })
+        .then((dbUser) => { 
+            // check username/password combination
+            if(!dbUser){
+                req.session.user = false;
+                res.json("Username not found")
+            } else if(bcrypt.compareSync(req.body.password, dbUser.password)){
+                req.session.user = {
+                    id: dbUser.id,
+                    username: dbUser.username
+                }
+                // res.json("Logged in");
+                res.json(req.session)
+            }else {
+                req.session.user = false
+                res.json("Username and password do not exist")
+            }
+        }).catch(err => {
+            req.session.user = false;
+            res.status(500);
+        })
+});
 
 
 
