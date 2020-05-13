@@ -48,6 +48,7 @@ app.use(cors({
 
 const userRoutes = require("./controllers/userController");
 const productRoutes = require("./controllers/productController");
+const marketRoutes = require('./controllers/marketController')
 // const htmlRoutes = require("./controllers/htmlController");
 
 app.use(userRoutes);
