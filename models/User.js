@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt");
+
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('user', {
         username: {
@@ -79,8 +81,14 @@ module.exports = function (sequelize, DataTypes) {
             through: "userfavorites" 
         });
 
-     
-        User.belongsToMany(models.market, { through: 'userMarkets' })
+
+        User.belongsToMany(models.market, { through: 'userMarkets' });
+        
+        // encrypt password before saving it
+        User.beforeCreate(function(user) {
+            user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+        });
+
     };
 
 
