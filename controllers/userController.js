@@ -28,23 +28,21 @@ router.post("/api/users", function (req, res) {
     }).then(dbCost => res.send(dbCost));
 });
 
-//TODO: ADD FAVORITE VENDOR 
-// router.put("/api/users/:id/vendors", function (req, res) {
-//     // GET VENDOR ID FROM PAGE?
-//     const vendorId = req.body.vendor_id;
-//     db.user.update(
-//         {
-
-//         },
-//         where: {
-//             id: req.params.id
-//         }
-//     ).then((dbUserFavs) => {
-//         res.json(
-//             dbUserFavs.addUser(vendorId)
-//         )
-//     })
-// });
+// TODO: FIXME: ADD FAVORITE VENDOR 
+router.post("/api/users/:id/vendors", function (req, res) {
+    // GET VENDOR ID FROM PAGE?
+    const vendorId = req.body.vendor_id;
+    db.user.create({
+        where: {
+            id: req.params.id
+        }
+    }).then((dbUserFavs) => {
+        res.json(
+            // ADD VENDOR TO 
+            dbUserFavs.addUser(vendorId)
+        )
+    })
+});
 
 // GET USER BY ID#
 router.get("/api/users/:id", function (req, res) {
@@ -88,7 +86,7 @@ router.get("/api/users/:id/markets/schedules", function (req, res) {
             where: {
                 id: req.params.id
             },
-            include: [db.schedule, db.market]
+            include: [{model: db.schedule, include: [db.market]}]
         })
         .then((dbEvent) => res.json(dbEvent));
 });
@@ -105,14 +103,14 @@ router.get("/api/users/:id/vendors", function (req, res) {
 
 // GET ALL INFO
 router.get("/api/user/allinfo", function (req, res) {
-    db.user.findAll({ include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorite' }] })
+    db.user.findAll({ include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorites' }] })
         .then(dbAllInfo => res.json(dbAllInfo));
 })
 
 // GET ALL INFO BY USER ID
 router.get("/api/users/:id/allinfo", function (req, res) {
     db.user.findAll({
-        include: [db.product, db.market, db.schedule],
+        include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorites' }],
         where: {
             id: req.params.id
         }
@@ -160,17 +158,5 @@ router.post("/login", (req, res) => {
             res.status(500);
         })
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
