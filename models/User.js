@@ -77,7 +77,7 @@ module.exports = function (sequelize, DataTypes) {
         });
     
         User.belongsToMany(models.user, { 
-            as: 'favorite',
+            as: 'favorites',
             through: "userfavorites" 
         });
 
@@ -90,9 +90,6 @@ module.exports = function (sequelize, DataTypes) {
         });
 
     };
-
-
-
 
     return User;
 };
