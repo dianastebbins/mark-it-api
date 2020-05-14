@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
         vendor_name: {
             type: DataTypes.STRING,
             unique: true,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: [5]
             }
