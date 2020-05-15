@@ -8,6 +8,7 @@ var SequelizeStore = require('connect-session-sequelize')(session.Store);
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 8080;
+require("dotenv").config();
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -19,7 +20,7 @@ app.use(express.json());
 // TODO: replace with       secret: process.env.SESSION_SECRET,     
 app.use(session(
     { 
-      secret: "banana pudding", 
+      secret: process.env.SESSION_SECRET, 
       store: new SequelizeStore({
         db:db.sequelize
       }),
@@ -31,7 +32,8 @@ app.use(session(
     }));
 
 app.use(cors({
-    origin:["http://localhost:3000"]
+    origin:["http://localhost:3000"],
+    credentials: true
 }));
 // app.use(cors({
 //     origin:["https://joes-baseball-frontend.herokuapp.com"]
