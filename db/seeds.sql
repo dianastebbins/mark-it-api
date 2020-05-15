@@ -26,7 +26,7 @@ INSERT INTO Users (username, password, first_name, last_name, email, createdAt, 
 INSERT INTO Users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
 ("shopper8","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Sarah", "Stanford", "s.stanford@test.com", current_timestamp(), current_timestamp());
 INSERT INTO Users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
-("shopper9","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Serentiyntha", "Stewart", "s.stewart@test.com", current_timestamp(), current_timestamp());
+("shopper9","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Serenity", "Stewart", "s.stewart@test.com", current_timestamp(), current_timestamp());
 INSERT INTO Users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
 ("shopper10","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Stephanie", "Swift", "s.swift@test.com", current_timestamp(), current_timestamp());
 
