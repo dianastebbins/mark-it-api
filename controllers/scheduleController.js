@@ -19,11 +19,22 @@ router.post("/api/schedules", function (req, res) {
 
         // CHANGE TO userId: req.session.user.id BELOW  
         // TO INSERT LOGGED IN USER FOR THIS TABLE
-        userId : req.body.userId // format for DATE: YYYY-MM-DD hh:mm:ss
+        userId : req.session.user.id // format for DATE: YYYY-MM-DD hh:mm:ss
     }).then(dbCost => res.send(dbCost));
 });
 
-
+router.put("/api/schedules/:id", function (req, res) {
+    db.product.update({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        details: req.body.details,
+        userId : req.session.user.id
+    },
+    {where: { id: req.params.id }}).then(dbProduct => {
+        res.send(dbProduct)
+    })
+});
 
 
 module.exports = router;

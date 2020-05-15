@@ -12,7 +12,10 @@ module.exports = function (sequelize, DataTypes) {
         details: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        // image: {
+        //     type: DataTypes.STRING
+        // }
     });
 
     Product.associate = function (models) {
