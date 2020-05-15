@@ -17,8 +17,21 @@ router.post("/api/products", function (req, res) {
         description: req.body.description,
         price: req.body.price,
         details: req.body.details,
-        userId : req.body.userId
-    }).then(dbCost => res.send(dbCost));
+        userId : req.session.user.id
+    }).then(dbProduct => res.send(dbProduct));
+});
+
+router.put("/api/products/:id", function (req, res) {
+    db.product.update({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        details: req.body.details,
+        userId : req.session.user.id
+    },
+    {where: { id: req.params.id}}).then(dbProduct => {
+        res.send(dbProduct)
+    })
 });
 
 
