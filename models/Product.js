@@ -13,9 +13,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        // image: {
-        //     type: DataTypes.STRING
-        // }
+        image: {
+            type: DataTypes.STRING
+        }
     });
 
     Product.associate = function (models) {
