@@ -45,7 +45,7 @@ router.put("/api/products/:id", function (req, res) {
     })
 });
 
-
+// DELETE PRODUCT GOES HERE
 
 
 module.exports = router;
