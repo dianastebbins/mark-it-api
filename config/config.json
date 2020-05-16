@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "banana89",
+    "password": "password",
     "database": "markit_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
