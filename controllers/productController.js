@@ -9,6 +9,16 @@ router.get("/api/products", function (req, res) {
     .then(dbProducts => res.json(dbProducts));
 });
 
+// GET PRODUCT BY ID
+router.get("/api/products/:id", function (req, res) {
+    db.product
+        .findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then((dbEvent) => res.json(dbEvent));
+});
 
 // POST NEW PRODUCT
 router.post("/api/products", function (req, res) {
@@ -17,7 +27,8 @@ router.post("/api/products", function (req, res) {
         description: req.body.description,
         price: req.body.price,
         details: req.body.details,
-        userId : req.session.user.id
+        userId : req.session.user.id,
+        image: req.body.image
     }).then(dbProduct => res.send(dbProduct));
 });
 
@@ -34,7 +45,7 @@ router.put("/api/products/:id", function (req, res) {
     })
 });
 
-
+// DELETE PRODUCT GOES HERE
 
 
 module.exports = router;
