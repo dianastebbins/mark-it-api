@@ -35,7 +35,7 @@ app.use(session(
 //     credentials: true
 // }));
 app.use(cors({
-    origin:["https://awesome-mark-it.herokuapp.com/"]
+    origin:["https://awesome-mark-it.herokuapp.com"]
 }));
 
 // Static directory
