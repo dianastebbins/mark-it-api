@@ -38,7 +38,8 @@ router.put("/api/products/:id", function (req, res) {
         description: req.body.description,
         price: req.body.price,
         details: req.body.details,
-        userId : req.session.user.id
+        userId : req.session.user.id,
+        image: req.body.image
     },
     {where: { id: req.params.id}}).then(dbProduct => {
         res.send(dbProduct)

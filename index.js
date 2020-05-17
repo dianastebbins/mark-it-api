@@ -30,13 +30,13 @@ app.use(session(
       }
     }));
 
-// app.use(cors({
-//     origin:["http://localhost:3000"],
-//     credentials: true
-// }));
 app.use(cors({
-    origin:["https://awesome-mark-it.herokuapp.com/"]
+    origin:["http://localhost:3000"],
+    credentials: true
 }));
+// app.use(cors({
+//     origin:["https://joes-baseball-frontend.herokuapp.com"]
+// }));
 
 // Static directory
 // app.use(express.static('public'));
