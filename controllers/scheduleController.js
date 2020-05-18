@@ -23,18 +23,19 @@ router.post("/api/schedules", function (req, res) {
     }).then(dbCost => res.send(dbCost));
 });
 
-router.put("/api/schedules/:id", function (req, res) {
-    db.product.update({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        details: req.body.details,
-        userId : req.session.user.id
-    },
-    {where: { id: req.params.id }}).then(dbProduct => {
-        res.send(dbProduct)
-    })
-});
+// TODO: API to update schedule, but body of product...unusable as-is
+// router.put("/api/schedules/:id", function (req, res) {
+//     db.product.update({
+//         name: req.body.name,
+//         description: req.body.description,
+//         price: req.body.price,
+//         details: req.body.details,
+//         userId : req.session.user.id
+//     },
+//     {where: { id: req.params.id }}).then(dbProduct => {
+//         res.send(dbProduct)
+//     })
+// });
 
 
 module.exports = router;
