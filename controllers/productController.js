@@ -46,7 +46,7 @@ router.put("/api/products/:id", function (req, res) {
     })
 });
 
-// DELETE PRODUCT GOES HERE
+// DELETE PRODUCT
 router.delete("/api/products/:id", function (req, res) {
     db.product.destroy({
         where: { id: req.params.id}}).then(dbProduct => {
