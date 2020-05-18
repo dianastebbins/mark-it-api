@@ -2,11 +2,11 @@
 USE markit_db;
 
 -- markets
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("Pike Place Market", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("Maple Valley Weekend Market", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("Gold Bar Sunday Market", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("Mill Creek Saturday Market", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("Redmond Farmer Market", current_time(), current_time());
+INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1012150", current_time(), current_time());
+INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1016799", current_time(), current_time());
+INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1010884", current_time(), current_time());
+INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1009706", current_time(), current_time());
+INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1000666", current_time(), current_time());
 
 -- users, not vendors -- user ids 1 through 10
 INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
@@ -67,36 +67,52 @@ INSERT INTO users (username, password, first_name, last_name, email, vendor_name
 ("vendor5","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Vance", "Venus", "v.venus@test.com", "Vances Flowers", "flowers@test.com", "(206) 111-0000", "2061110000", current_timestamp(), current_timestamp());
 
 -- vendors products -- vendor 11 has one product, vendor 12 has two, vendor 13 has 3, 14 has 4, 15 has 5
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("bakery item 1","bakery item 1 description",11.00,"bakery item 1 details",current_time(),current_time(),11);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("produce item 1","produce item 1 description",12.00,"produce item 1 details",current_time(),current_time(),12);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("produce item 2","produce item 2 description",12.12,"produce item 2 details",current_time(),current_time(),12);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("jewelry item 1","jewelry item 1 description",13.00,"jewelry item 1 details",current_time(),current_time(),13);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("jewelry item 2","jewelry item 2 description",13.13,"jewelry item 2 details",current_time(),current_time(),13);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("jewelry item 3","jewelry item 3 description",13.25,"jewelry item 3 details",current_time(),current_time(),13);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("candle item 1","candle item 1 description",14.00,"candle item 1 details",current_time(),current_time(),14);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("candle item 2","candle item 2 description",14.14,"candle item 2 details",current_time(),current_time(),14);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("candle item 3","candle item 3 description",14.25,"candle item 3 details",current_time(),current_time(),14);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("candle item 4","candle item 4 description",14.50,"candle item 4 details",current_time(),current_time(),14);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("flower item 1","flower item 1 description",15.00,"flower item 1 details",current_time(),current_time(),15);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("flower item 2","flower item 2 description",15.00,"flower item 2 details",current_time(),current_time(),15);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("flower item 3","flower item 3 description",15.00,"flower item 3 details",current_time(),current_time(),15);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("flower item 4","flower item 4 description",15.00,"flower item 4 details",current_time(),current_time(),15);
-INSERT INTO products (`name`,`description`,`price`,`details`,`createdAt`,`updatedAt`,`userId`) VALUES
-("flower item 5","flower item 5 description",15.00,"flower item 5 details",current_time(),current_time(),15);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Beaded Necklace Strings","Variety item",15,"Pricing starts at $15.00. Many colors, lengths and styles to choose from!","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829070/kbw1jkzokbyrte73nzh8.jpg",current_time(),current_time(),13);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Clay Butterfly Earrings","handmade from Fimo clay",25,"blues shown, other colors available","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829317/j53xeyluvn0dav0rwjgu.jpg",current_time(),current_time(),13);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Bracelet","hammered copper",40,"local artisan","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829653/rxnldhvdfsnyt3gt6slf.jpg",current_time(),current_time(),13);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Jewelry Box","hammered copper",125,"rustic, beautiful and functional","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829687/ufjnsuizczm1im4x0qk2.jpg",current_time(),current_time(),13);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Beeswax Candles","Pillar style",15,"3 sizes","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829166/unc3r2pmbzhoazggni71.jpg",current_time(),current_time(),14);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Beeswax Candles","Taper Style",12.5,"Priced per pair","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829228/k0rjrvbogz7pldp3kfoz.jpg",current_time(),current_time(),14);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Floral candle jar","variety styles and scents",17.5,"small burns 6 hours","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829566/hntmt8vwmd9aeyi0dypo.jpg",current_time(),current_time(),14);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Bell peppers","red, yellow, green",2.49,"price per each","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829282/b0rhvwpautatzzh5uztw.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Carrots","locally grown",1.49,"price per pound","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829400/e74fmmjue2twgtopsz6p.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Cherries","eastern washington orchard",3.99,"delivered daily!","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829428/bmlynxlxd9f3zzumdnv1.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Grapes","delivered daily",3.99,"price per pound","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829623/fm6tb77mnncbkqtoji4k.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Peaches","local crop",3.49,"large, sweet, juicy!","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829991/pagwc87iv1xqnbpbxa57.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Baby Spinach","local farm",5,"pre-washed, 8 oz container","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589830038/hp8dbd04mwhd7knppni8.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Sweet Potato","harvested locally",2,"price per pound","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589830083/rsfk0wlqfshzxnosrlkq.jpg",current_time(),current_time(),12);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Daffodils","spring blooms",5,"3 stems","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829490/j7atktpfextnfq16meqf.jpg",current_time(),current_time(),15);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Lillies","potted for longer blooms",27,"10-inch pot","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829790/ggtvx8wa3mhxf7wafc7a.jpg",current_time(),current_time(),15);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Tulips","spring blooms",5,"3 stems","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829538/pj0ctpr07dklakoyqjkr.jpg",current_time(),current_time(),15);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Vases","Small bouquet, 2 or 3 stems",15,"many sizes, pricing starts at $15","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589830141/plrqtnlbcyt2rscnxe6z.jpg",current_time(),current_time(),15);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Focaccia bread","italian herbs",10,"half-loafs available upon request","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829734/mkrt2gow7vsvfiktlfz4.jpg",current_time(),current_time(),11);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Macarons","Chocolate, key lime, raspberry and vanilla available",15,"price per dozen, one variety","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829839/zvklhqjzhifj4fel4clr.jpg",current_time(),current_time(),11);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Muffins","Blueberry, carrot cake, chocolate, lemon varieties",8,"half-dozen","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829895/d92tmewyd5bycd1cdw8h.jpg",current_time(),current_time(),11);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Organic Sourdough Bread","artfully finished",10,"baked fresh daily","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589829953/yizn9dbmfuquv10ouleh.jpg",current_time(),current_time(),11);
+INSERT INTO products (`name`,`description`,`price`,`details`,`image`,`createdAt`,`updatedAt`,`userId`) VALUES
+("Whole Grain Artisan Bread","Serve tonight!",6,"Gluten-free available on request, $9","https://res.cloudinary.com/dw69fw1u3/image/upload/v1589830189/itood20yv9l9c2y8njui.jpg",current_time(),current_time(),11);
 
 -- users, not vendors, favorite vendors -- user 1 likes 11;, user 2 likes 12; user 3 likes 13; user 4 likes 14; user 5 likes 15
 -- user 6 likes 11,12,13; user 7 likes 13,14,15; user 9 likes all vendors; 
@@ -154,4 +170,3 @@ INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, us
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-15 10:00:00", "2020-06-15 14:00:00",current_time(),current_time(), 3, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-16 10:00:00", "2020-06-16 14:00:00",current_time(),current_time(), 4, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-17 10:00:00", "2020-06-17 14:00:00",current_time(),current_time(), 4, 12);
-
