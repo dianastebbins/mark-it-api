@@ -51,11 +51,14 @@ app.use(cors({
 // app.use(express.static('public'));
 
 const userRoutes = require("./controllers/userController");
+const marketRoutes = require("./controllers/marketController");
 const productRoutes = require("./controllers/productController");
-const marketRoutes = require('./controllers/marketController')
+const scheduleRoutes = require("./controllers/scheduleController");
 
 app.use(userRoutes);
+app.use(marketRoutes);
 app.use(productRoutes);
+app.use(scheduleRoutes);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
