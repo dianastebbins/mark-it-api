@@ -20,6 +20,16 @@ router.post("/api/markets", function (req, res) {
     })
 });
 
+// DELETE MARKET (Vendor deletes event they previously created)
+router.delete("/api/markets/:id", function (req, res) {
+    db.market.destroy({
+        where: { id: req.params.id}}).then(dbMarket => {
+            res.json(dbMarket)
+    })
+    // any associated userMarkets...automatically deleted because of ON CASCADE
+    // any associated schedules...automatically deleted because of ON CASCADE
+});
 
+module.exports = router;
 
 
