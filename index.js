@@ -31,10 +31,16 @@ app.use(session(
     }));
 
     // when running locally
+// USE THIS CONFIG WHEN RUNNING LOCALLY
 app.use(cors({
     origin:["http://localhost:3000"],
     credentials: true
 }));
+// USE THIS CONFIG WHEN DEPLOYING TO HEROKU
+// app.use(cors({
+//   origin:["https://awesome-mark-it.herokuapp.com"],
+//   credentials: true
+// }));
 
 // the deployed configuration at heroku
 // app.use(cors({
