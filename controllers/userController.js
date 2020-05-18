@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcrypt");
+const { Op } = require("sequelize");
 
 
 // GET ALL USERS (JSON)
@@ -44,6 +45,32 @@ router.post("/api/users/:id/vendors", function (req, res) {
     })
 });
 
+// REMOVE PREVIOUSLY FAVORITED VENDOR
+router.put("/api/users/unfavor/vendor/:id", function (req, res) {
+    // get the user and their vendor favorites
+    db.user
+        .findOne({
+            where: {
+                id: req.session.user.id,
+            },
+            include: [{ model: db.user, as: 'favorites' }] // cannot seem to use a where clause in here
+        })
+        .then((dbUsers) => {
+            console.log(dbUsers)
+            dbUsers.getFavorites({
+                where: {
+                    id: {[Op.ne]: req.params.id} // get all of the current favorite vendors EXCEPT the one to unassociate/req.params.id
+                }
+            })
+            .then(newFavorites => {
+                dbUsers.setFavorites(newFavorites) // reset the vendor list, minus the one to unassociate/req.params.id
+                .then(dbRowsDeleted => {
+                    res.json(dbRowsDeleted)
+                });
+            })
+        })
+});
+
 // GET USER BY ID#
 router.get("/api/users/:id", function (req, res) {
     db.user
@@ -67,7 +94,7 @@ router.get("/api/users/:id/products", function (req, res) {
         .then((dbEvent) => res.json(dbEvent));
 });
 
-// GET MARKETS FAVORITED BY BY USER ID
+// GET MARKETS FAVORITED BY USER ID
 router.get("/api/users/:id/markets", function (req, res) {
     db.user
         .findAll({
@@ -77,6 +104,31 @@ router.get("/api/users/:id/markets", function (req, res) {
             include: [db.market]
         })
         .then((dbEvent) => res.json(dbEvent));
+});
+
+// REMOVE PREVIOUSLY FAVORITED MARKET
+router.put("/api/users/unfavor/market/:id", function (req, res) {
+    // get the user and their market favorites
+    db.user
+        .findOne({
+            where: {
+                id: req.session.user.id,
+            },
+            include: [db.market] // cannot seem to use a where clause in here
+        })
+        .then((dbUsers) => {
+            dbUsers.getMarkets({
+                where: {
+                    id: {[Op.ne]: req.params.id} // get all of the current favorite markets EXCEPT the one to unassociate/req.params.id
+                }
+            })
+            .then(newFavorites => {
+                dbUsers.setMarkets(newFavorites) // reset the market list, minus the one to unassociate/req.params.id
+                .then(dbRowsDeleted => {
+                    res.json(dbRowsDeleted)
+                });
+            })
+        })
 });
 
 // GET MARKET SCHEDULES BY USER ID
