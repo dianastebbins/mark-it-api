@@ -1,7 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
     const Market = sequelize.define("market", {
-        market_id: {
-            type: DataTypes.STRING, // format for DATETIME: YYYY-MM-DD hh:mm:ss
+        id: {
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            primaryKey: true
+        },
+        market_name: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     });
@@ -15,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
         Market.belongsToMany(models.user, { 
-            through: 'userMarkets' 
+            through: 'userMarkets'
         })
     }
 
