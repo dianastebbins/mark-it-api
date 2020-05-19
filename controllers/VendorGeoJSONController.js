@@ -4,10 +4,14 @@ const db = require("../models");
 
 router.post("/api/vendorgeojson", function (req, res) {
 
-
+    (console.log('server side'))
     console.log(req.body);
 
-    // db.product.create(req.body).then(dbProduct => res.send(dbProduct));
+    db.vendorgeojson.create({vendorObj: req.body}).then(dbGeoJSON => res.json(dbGeoJSON));
 });
+
+router.get("/api/vendorgeojson", function (req, res) {
+    db.vendorgeojson.findAll({}).then(dbGeoJSON => res.json(dbGeoJSON))
+})
 
 module.exports = router;
