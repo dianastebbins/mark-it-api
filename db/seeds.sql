@@ -2,11 +2,11 @@
 USE markit_db;
 
 -- markets
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1012150", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1016799", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1010884", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1009706", current_time(), current_time());
-INSERT INTO markets (market_id, createdAt, updatedAt) VALUES ("1000666", current_time(), current_time());
+INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1012150", "test name1", current_time(), current_time());
+INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1016799", "test name2", current_time(), current_time());
+INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1010884", "test name3", current_time(), current_time());
+INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1009706", "test name4", current_time(), current_time());
+INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1000666", "test name5", current_time(), current_time());
 
 -- users, not vendors -- user ids 1 through 10
 INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
