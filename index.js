@@ -54,11 +54,13 @@ const userRoutes = require("./controllers/userController");
 const marketRoutes = require("./controllers/marketController");
 const productRoutes = require("./controllers/productController");
 const scheduleRoutes = require("./controllers/scheduleController");
+const geoJSONRoutes = require("./controllers/VendorGeoJSONController")
 
 app.use(userRoutes);
 app.use(marketRoutes);
 app.use(productRoutes);
 app.use(scheduleRoutes);
+app.use(geoJSONRoutes);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
