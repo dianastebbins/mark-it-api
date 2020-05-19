@@ -34,26 +34,22 @@ router.post("/api/users", function (req, res) {
     })
 });
 
-// TODO: FIXME: ADD FAVORITE VENDOR 
+// POST NEW FAVORITE VENDOR 
 router.post("/api/users/:id/vendors", function (req, res) {
-    console.log("Here")
-    console.log("params: " + req.params.id)
-    console.log("body: " + req.body.vendor_id)
-    console.log("user: " + req.session.user)
-
-    // GET VENDOR ID FROM PAGE?
-    const vendorId = req.body.vendor_id;
-    db.user.create({
+    // get the user that is adding a vendor favorite
+    db.user.findOne({
         where: {
-            id: req.params.id
-        }
-    }).then((dbUserFavs) => {
-        res.json(
-            // ADD VENDOR TO 
-            dbUserFavs.addUser(vendorId)
-        )
+            id: req.params.id,
+        },
+        include: [{ model: db.user, as: 'favorites' }]
+    }).then((dbUser) => {
+        // save the favorite vendor
+        const vendorID = req.body.vendor_id;
+        dbUser.addFavorite(vendorID);
+        res.json(dbUser);
     })
 });
+
 
 // REMOVE PREVIOUSLY FAVORITED VENDOR
 router.put("/api/users/unfavor/vendor/:id", function (req, res) {
@@ -61,7 +57,7 @@ router.put("/api/users/unfavor/vendor/:id", function (req, res) {
     db.user
         .findOne({
             where: {
-                id: req.session.user.id,
+                id: req.params.id,
             },
             include: [{ model: db.user, as: 'favorites' }] // cannot seem to use a where clause in here
         })
@@ -69,7 +65,7 @@ router.put("/api/users/unfavor/vendor/:id", function (req, res) {
             console.log(dbUsers)
             dbUsers.getFavorites({
                 where: {
-                    id: {[Op.ne]: req.params.id} // get all of the current favorite vendors EXCEPT the one to unassociate/req.params.id
+                    id: {[Op.ne]: req.body.vendor_id} // get all of the current favorite vendors EXCEPT the one to unassociate/req.params.id
                 }
             })
             .then(newFavorites => {
