@@ -26,11 +26,21 @@ router.post("/api/users", function (req, res) {
         vendor_phone: req.body.vendor_phone,
         bus_lic: req.body.bus_lic,
         favoriteId: req.body.userId
-    }).then(dbCost => res.send(dbCost));
+    }).then(dbNewUser => {
+        // console.log(dbNewUser)
+        res.send(dbNewUser);
+    }).catch(err => {
+        res.status(500).json(err);
+    })
 });
 
 // TODO: FIXME: ADD FAVORITE VENDOR 
 router.post("/api/users/:id/vendors", function (req, res) {
+    console.log("Here")
+    console.log("params: " + req.params.id)
+    console.log("body: " + req.body.vendor_id)
+    console.log("user: " + req.session.user)
+
     // GET VENDOR ID FROM PAGE?
     const vendorId = req.body.vendor_id;
     db.user.create({
@@ -155,7 +165,9 @@ router.get("/api/users/:id/vendors", function (req, res) {
 
 // GET ALL INFO
 router.get("/api/user/allinfo", function (req, res) {
-    db.user.findAll({ include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorites' }] })
+    db.user.findAll({ 
+        include: [db.product, db.market, db.schedule, { model: db.user, as: 'favorites' }] 
+    })
         .then(dbAllInfo => res.json(dbAllInfo));
 })
 
