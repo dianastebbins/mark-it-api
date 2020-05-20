@@ -30,24 +30,31 @@ app.use(session(
       }
     }));
 
-// app.use(cors({
-//     origin:["http://localhost:3000"],
-//     credentials: true
-// }));
+// USE THIS CONFIG WHEN RUNNING LOCALLY
 app.use(cors({
     origin:["https://awesome-mark-it.herokuapp.com"],
     credentials: true
 }));
+// USE THIS CONFIG WHEN DEPLOYING TO HEROKU
+// app.use(cors({
+//   origin:["https://awesome-mark-it.herokuapp.com"],
+//   credentials: true
+// }));
 
 // Static directory
 // app.use(express.static('public'));
 
 const userRoutes = require("./controllers/userController");
+const marketRoutes = require("./controllers/marketController");
 const productRoutes = require("./controllers/productController");
-const marketRoutes = require('./controllers/marketController')
+const scheduleRoutes = require("./controllers/scheduleController");
+const geoJSONRoutes = require("./controllers/VendorGeoJSONController")
 
 app.use(userRoutes);
+app.use(marketRoutes);
 app.use(productRoutes);
+app.use(scheduleRoutes);
+app.use(geoJSONRoutes);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {

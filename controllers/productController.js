@@ -38,14 +38,21 @@ router.put("/api/products/:id", function (req, res) {
         description: req.body.description,
         price: req.body.price,
         details: req.body.details,
-        userId : req.session.user.id
+        userId : req.session.user.id,
+        image: req.body.image
     },
     {where: { id: req.params.id}}).then(dbProduct => {
         res.send(dbProduct)
     })
 });
 
-// DELETE PRODUCT GOES HERE
+// DELETE PRODUCT
+router.delete("/api/products/:id", function (req, res) {
+    db.product.destroy({
+        where: { id: req.params.id}}).then(dbProduct => {
+            res.json(dbProduct)
+    })
+});
 
 
 module.exports = router;
