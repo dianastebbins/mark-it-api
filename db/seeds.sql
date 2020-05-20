@@ -173,3 +173,12 @@ INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, us
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-15 10:00:00", "2020-06-15 14:00:00",current_time(),current_time(), 1010884, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-16 10:00:00", "2020-06-16 14:00:00",current_time(),current_time(), 1009706, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-17 10:00:00", "2020-06-17 14:00:00",current_time(),current_time(), 1009706, 12);
+
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-06 10:00:00", "2020-06-06 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-07 10:00:00", "2020-06-07 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-13 10:00:00", "2020-06-13 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-14 10:00:00", "2020-06-14 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-20 10:00:00", "2020-06-20 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-27 10:00:00", "2020-06-27 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-04 10:00:00", "2020-07-04 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-11 10:00:00", "2020-07-11 14:00:00",current_time(),current_time(), 1000666, 13);
