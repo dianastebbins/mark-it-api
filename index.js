@@ -32,7 +32,7 @@ app.use(session(
 
 // USE THIS CONFIG WHEN RUNNING LOCALLY
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:["https://awesome-mark-it.herokuapp.com"],
     credentials: true
 }));
 // USE THIS CONFIG WHEN DEPLOYING TO HEROKU
