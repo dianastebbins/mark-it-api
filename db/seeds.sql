@@ -1,7 +1,7 @@
 
 -- markets
--- USE abas30xkmx6amb7u;
-USE markit_db;
+USE abas30xkmx6amb7u;
+-- USE markit_db;
 
 -- markets
 INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1012150", "Pike Place Market - Microsoft Commons Farmers Market", current_time(), current_time());
@@ -11,8 +11,8 @@ INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1009706", "
 INSERT INTO markets (id, market_name, createdAt, updatedAt) VALUES ("1000666", "Kirkland Wedneseday Market", current_time(), current_time());
 
 -- users, not vendors -- user ids 1 through 10
-INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
-("shopper1","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Samantha", "Smith", "s.smith@test.com", current_timestamp(), current_timestamp());
+-- INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
+-- ("shopper1","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Samantha", "Smith", "s.smith@test.com", current_timestamp(), current_timestamp());
 INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
 ("shopper2","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Sally", "Sandler", "s.sandler@test.com", current_timestamp(), current_timestamp());
 INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
@@ -32,10 +32,11 @@ INSERT INTO users (username, password, first_name, last_name, email, createdAt, 
 INSERT INTO users (username, password, first_name, last_name, email, createdAt, updatedAt) VALUES 
 ("shopper10","$2b$10$XdWwqBIXqIdc3gUXUNpo6OMMUslzEax/N.ymahcf84gtKWwZ/XNz2", "Stephanie", "Swift", "s.swift@test.com", current_timestamp(), current_timestamp());
 
+USE abas30xkmx6amb7u;
 -- users, not vendors, favorite markets -- user 1 likes market 1; user 2 likes 1,2; user 3 likes 1,2,3; user 4 likes 1,2,3,4; user 5 likes 1,2,3,4,5
 -- user 6 likes 1,2; user 7 likes 2,3; user 8 likes 3,4; user 9 likes 3,4, user 10 likes nothing
-INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 2, 1012150);
 INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 1, 1012150);
+INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 2, 1012150);
 INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 2, 1016799);
 INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 3, 1012150);
 INSERT INTO userMarkets (createdAt, updatedAt, userId, marketId) VALUES (current_time(), current_time(), 3, 1016799);
@@ -173,3 +174,12 @@ INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, us
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-15 10:00:00", "2020-06-15 14:00:00",current_time(),current_time(), 1010884, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-16 10:00:00", "2020-06-16 14:00:00",current_time(),current_time(), 1009706, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-17 10:00:00", "2020-06-17 14:00:00",current_time(),current_time(), 1009706, 12);
+
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-06 10:00:00", "2020-06-06 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-07 10:00:00", "2020-06-07 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-13 10:00:00", "2020-06-13 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-14 10:00:00", "2020-06-14 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-20 10:00:00", "2020-06-20 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-27 10:00:00", "2020-06-27 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-04 10:00:00", "2020-07-04 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-11 10:00:00", "2020-07-11 14:00:00",current_time(),current_time(), 1000666, 13);
