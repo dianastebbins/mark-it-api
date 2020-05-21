@@ -30,17 +30,26 @@ app.use(session(
       }
     }));
 
+<<<<<<< HEAD
     // when running locally
 // USE THIS CONFIG WHEN RUNNING LOCALLY
+=======
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000"; 
+>>>>>>> 96aad391f51298c27c6b413d84a0b851059e7d60
 app.use(cors({
-   origin:["http://localhost:3000"],
-   credentials: true
+    origin:[CORS_ORIGIN],
+    credentials: true
 }));
- //USE THIS CONFIG WHEN DEPLOYING TO HEROKU
-//  app.use(cors({
-//    origin:["https://awesome-mark-it.herokuapp.com"],
+// // USE THIS CONFIG WHEN RUNNING LOCALLY
+// app.use(cors({
+//    origin:["http://localhost:3000"],
 //    credentials: true
-//  }));
+// }));
+//  //USE THIS CONFIG WHEN DEPLOYING TO HEROKU
+// //  app.use(cors({
+// //    origin:["https://awesome-mark-it.herokuapp.com"],
+// //    credentials: true
+// //  }));
 
 // the deployed configuration at heroku
 // app.use(cors({
@@ -62,7 +71,18 @@ app.use(productRoutes);
 app.use(scheduleRoutes);
 app.use(geoJSONRoutes);
 
+<<<<<<< HEAD
 db.sequelize.sync({ force: true }).then(function() {
+=======
+const FORCE_SYNC_STRING = process.env.FORCE_SYNC_STRING || "FALSE";
+let forceSync = false;
+if(FORCE_SYNC_STRING === "TRUE"){
+  forceSync = true;
+}
+console.log("boolean flag is " + forceSync)
+
+db.sequelize.sync({ force: forceSync }).then(function() {
+>>>>>>> 96aad391f51298c27c6b413d84a0b851059e7d60
     app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
