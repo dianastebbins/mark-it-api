@@ -1,6 +1,6 @@
 
 -- markets
--- USE mhpjm5868jt6icht;
+-- USE abas30xkmx6amb7u;
 USE markit_db;
 
 -- markets
@@ -173,3 +173,12 @@ INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, us
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-15 10:00:00", "2020-06-15 14:00:00",current_time(),current_time(), 1010884, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-16 10:00:00", "2020-06-16 14:00:00",current_time(),current_time(), 1009706, 12);
 INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-17 10:00:00", "2020-06-17 14:00:00",current_time(),current_time(), 1009706, 12);
+
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-05 10:00:00", "2020-06-05 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-03 10:00:00", "2020-06-03 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-12 10:00:00", "2020-06-12 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-10 10:00:00", "2020-06-10 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-19 10:00:00", "2020-06-19 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-06-24 10:00:00", "2020-06-24 14:00:00",current_time(),current_time(), 1000666, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-03 10:00:00", "2020-07-03 14:00:00",current_time(),current_time(), 1009706, 13);
+INSERT INTO schedules (open_time, close_time, createdAt, updatedAt, marketId, userId) VALUES ("2020-07-08 10:00:00", "2020-07-08 14:00:00",current_time(),current_time(), 1000666, 13);
