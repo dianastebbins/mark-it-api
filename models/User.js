@@ -34,20 +34,21 @@ module.exports = function (sequelize, DataTypes) {
         // ==========================
         vendor_name: {
             type: DataTypes.STRING,
-            unique: true,
-            allowNull: true,
-            validate: {
-                len: [5]
-            }
+            // unique: true,
+            allowNull: true
+           
         },
         vendor_email: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         vendor_phone: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         bus_lic: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         }
         // =============================================
         // IF WE WANT SEPARATE VENDOR ID, SEQUELIZE WILL
