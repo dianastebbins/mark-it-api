@@ -30,16 +30,21 @@ app.use(session(
       }
     }));
 
-// USE THIS CONFIG WHEN RUNNING LOCALLY
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000"; 
 app.use(cors({
-   origin:["http://localhost:3000"],
-   credentials: true
+    origin:[CORS_ORIGIN],
+    credentials: true
 }));
- //USE THIS CONFIG WHEN DEPLOYING TO HEROKU
-//  app.use(cors({
-//    origin:["https://awesome-mark-it.herokuapp.com"],
+// // USE THIS CONFIG WHEN RUNNING LOCALLY
+// app.use(cors({
+//    origin:["http://localhost:3000"],
 //    credentials: true
-//  }));
+// }));
+//  //USE THIS CONFIG WHEN DEPLOYING TO HEROKU
+// //  app.use(cors({
+// //    origin:["https://awesome-mark-it.herokuapp.com"],
+// //    credentials: true
+// //  }));
 
 // Static directory
 // app.use(express.static('public'));
@@ -56,7 +61,14 @@ app.use(productRoutes);
 app.use(scheduleRoutes);
 app.use(geoJSONRoutes);
 
-db.sequelize.sync({ force: false }).then(function() {
+const FORCE_SYNC_STRING = process.env.FORCE_SYNC_STRING || "FALSE";
+let forceSync = false;
+if(FORCE_SYNC_STRING === "TRUE"){
+  forceSync = true;
+}
+console.log("boolean flag is " + forceSync)
+
+db.sequelize.sync({ force: forceSync }).then(function() {
     app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
