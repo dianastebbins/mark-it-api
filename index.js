@@ -71,9 +71,6 @@ app.use(productRoutes);
 app.use(scheduleRoutes);
 app.use(geoJSONRoutes);
 
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(function() {
-=======
 const FORCE_SYNC_STRING = process.env.FORCE_SYNC_STRING || "FALSE";
 let forceSync = false;
 if(FORCE_SYNC_STRING === "TRUE"){
@@ -82,7 +79,6 @@ if(FORCE_SYNC_STRING === "TRUE"){
 console.log("boolean flag is " + forceSync)
 
 db.sequelize.sync({ force: forceSync }).then(function() {
->>>>>>> 96aad391f51298c27c6b413d84a0b851059e7d60
     app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
