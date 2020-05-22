@@ -30,12 +30,7 @@ app.use(session(
       }
     }));
 
-<<<<<<< HEAD
-    // when running locally
-// USE THIS CONFIG WHEN RUNNING LOCALLY
-=======
 const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000"; 
->>>>>>> 96aad391f51298c27c6b413d84a0b851059e7d60
 app.use(cors({
     origin:[CORS_ORIGIN],
     credentials: true
