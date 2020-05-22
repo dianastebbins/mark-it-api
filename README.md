@@ -26,7 +26,7 @@
 
 mobile screen size responsive
 
-<img src="./assets/images/screenshot7.png" width="250px"> <img src="./assets/images/screenshot8.png" width="250px" height="370px"> 
+<img src="./assets/images/screenshot7.png" width="250px"> <img src="./assets/images/screenshot8.png" width="250px" height="370px"> <img src="./assets/images/screenshot12.png" width="250px" height="370px"> 
 
 <hr>
 Once landing at the splash page , a video showing with introduction about the page
@@ -64,7 +64,7 @@ To use this application, you can [click here](https://awesome-mark-it.herokuapp.
 
 Upon clicking on the link above, you can create a user and password in the app and from there you can be directed to posting items for sell or searching markets by zipcode.
 
-![gif1](./app/public/assets/images/gif1.gif)
+![gif1](./assets/images/gif1.gif)
 
 
 
