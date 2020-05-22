@@ -26,11 +26,11 @@
 
 mobile screen size responsive
 
-<img src="./assets/images/screenshot7.png" width="250px"> <img src="./assets/images/screenshot8.png" width="250px" height="370px"> <img src="./assets/images/screenshot12.png" width="250px" height="370px"> 
+<img src="./assets/images/screenshot14.png" width="250px" height="370px"> <img src="./assets/images/screenshot8.png" width="250px" height="370px"> <img src="./assets/images/screenshot12.png" width="250px" height="370px"> 
 
 <hr>
 Once landing at the splash page , a video showing with introduction about the page
-<img src="./assets/images/screenshot6.png">
+<img src="./assets/images/screenshot13.png">
 
 On Find Market tab, if you are not logged in , you can find farmers market events searched by zip code, If you log in , you can post an item and it will be pinned to the map.
 <img src="./assets/images/screenshot9.png">
@@ -135,6 +135,8 @@ To-do list:
 * g. add to cart
 * h. ability to add review on items from a vendor
 * i. to make payments within the application
+* j. scheduled delete functionality for old posts
+
 
 
 
