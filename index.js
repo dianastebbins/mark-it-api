@@ -46,6 +46,11 @@ app.use(cors({
 // //    credentials: true
 // //  }));
 
+// the deployed configuration at heroku
+// app.use(cors({
+//     origin:["https://awesome-mark-it.herokuapp.com/"]
+// }));
+
 // Static directory
 // app.use(express.static('public'));
 
