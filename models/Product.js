@@ -24,6 +24,13 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
+
+        Product.hasOne(models.vendorgeojson, {
+            onDelete: 'CASCADE',
+            foreignKey: {
+                allowNull: false
+            }
+        })
         
     }
 

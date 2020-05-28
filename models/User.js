@@ -34,8 +34,8 @@ module.exports = function (sequelize, DataTypes) {
         // ==========================
         vendor_name: {
             type: DataTypes.STRING,
-            // unique: true,
-            allowNull: true
+            // // unique: true,
+            // allowNull: true
            
         },
         vendor_email: {
