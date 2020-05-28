@@ -48,7 +48,7 @@ router.post("/api/products", function (req, res) {
                 details: req.body.description,
                 userId: req.body.userId,
                 image: req.body.image,
-                userId: req.body.userId
+                userId: req.session.user.id
             }
         }
         res.send(dbProduct);
